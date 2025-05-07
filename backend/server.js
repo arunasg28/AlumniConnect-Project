@@ -22,11 +22,12 @@ const PORT = process.env.PORT || 5000;
 
 const __dirname = path.resolve();
 
+app.set("trust proxy", 1);
 app.use(
   cors({
     origin: [
       "http://localhost:5173", // local dev
-      "https://mamcet-alumniconnect.netlify.app/login"
+      "https://mamcet-alumniconnect.netlify.app"
     ],
     credentials: true,
   })
