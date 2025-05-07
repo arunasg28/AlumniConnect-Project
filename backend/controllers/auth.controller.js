@@ -88,9 +88,17 @@ export const login = async (req, res) => {
 };
 
 export const logout = (req, res) => {
-	res.clearCookie("jwt-Mamcet");
-	res.json({ message: "Logged out successfully" });
+  res.clearCookie("jwt-Mamcet", {
+    httpOnly: true,                
+    secure: process.env.NODE_ENV === "production", 
+    sameSite: "None",              
+    maxAge: 0,                     
+  });
+
+  // Send a response with a success message
+  return res.status(200).json({ message: "Logged out successfully" });
 };
+
 
 export const getCurrentUser = async (req, res) => {
 	try {
