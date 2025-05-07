@@ -18,12 +18,6 @@ import { connectDB } from "./lib/db.js";
 
 
 const app = express();
-app.use(
-	cors({
-	  origin: "http://localhost:5173", // React dev server
-	  credentials: true,
-	})
-  );
 const PORT = process.env.PORT || 5000;
 
 const __dirname = path.resolve();
