@@ -16,7 +16,7 @@ export const handleChatbotRequest = async (req, res) => {
     console.log("Searching for student:", studentName);
 
     const student = await User.findOne({
-      name: { $regex: new RegExp(`^${studentName}$`, "i") },
+      name: { $regex: new RegExp(studentName, "i") },
     });
 
     if (!student) {
